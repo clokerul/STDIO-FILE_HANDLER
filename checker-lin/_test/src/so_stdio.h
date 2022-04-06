@@ -1,9 +1,3 @@
-/*
- * Operating System Executable Loader header
- *
- * 2019, Operating Systems
- */
-
 #ifndef SO_STDIO_H
 #define SO_STDIO_H
 
@@ -29,6 +23,8 @@
 #define SEEK_END	2	/* Seek from end of file.  */
 
 #define SO_EOF (-1)
+
+struct _so_file;
 
 typedef struct _so_file SO_FILE;
 
@@ -63,7 +59,5 @@ FUNC_DECL_PREFIX int so_ferror(SO_FILE *stream);
 
 FUNC_DECL_PREFIX SO_FILE *so_popen(const char *command, const char *type);
 FUNC_DECL_PREFIX int so_pclose(SO_FILE *stream);
-
-void print_so_descriptor(SO_FILE *stream);
 
 #endif /* SO_STDIO_H */
