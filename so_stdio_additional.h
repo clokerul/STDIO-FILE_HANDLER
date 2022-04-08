@@ -9,8 +9,9 @@
 #define MODE_APPEND 1
 #define MODE_READ   2
 #define MODE_WRITE  3
-#define MODE_RDWR   4
-#define MODE_RDAPP  5
+#define MODE_RDPLUS 4
+#define MODE_APPLUS 5
+#define MODE_WRPLUS 6
 
 #define BUFFER_SIZE 4097
 
@@ -19,11 +20,16 @@ struct _so_file {
     char pathname[100];
     char *buffer_write;
     char *buffer_read;
-    char *cursor;
+    int cursor;
     int mode;
+    int last_instr;
+
     int fd;
-    int buffer_write_cursor;
-    int buffer_read_cursor;
+    int buffer_write_cursor, buffer_write_current_size;
+    int buffer_read_cursor, buffer_read_current_size;
+
+    int f_eof;
+    int f_error
 };
 
 #endif
