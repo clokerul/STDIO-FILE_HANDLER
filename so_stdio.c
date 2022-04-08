@@ -185,7 +185,6 @@ size_t so_fwrite(const void *ptr, size_t size, size_t nmemb, SO_FILE *stream) {
     // Iterating throught elements
     while (current < target) {
         // If there's not enough space in the buffer
-        stream->ITER = current;
         if (so_fputc(*((char*)ptr + current), stream) == SO_EOF) {
             stream->f_error = 1;
             return 0;

@@ -29,7 +29,7 @@ struct _so_file {
     int buffer_read_cursor, buffer_read_current_size;
 
     int f_eof;
-    int f_error
+    int f_error;
 };
 
 #endif
